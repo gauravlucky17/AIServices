@@ -1,0 +1,17 @@
+﻿@{ 
+   ViewData["Title"] = "Ask AI"; 
+} 
+<div class="container"> 
+   <h2>Ask AI</h2> 
+   <form method="post" asp-action="Ask"> 
+      <input type="text" name="question" placeholder="Enter your question..." class="form-control" required /> 
+      <button type="submit" class="btn btn-primary mt-2">Ask AI</button> 
+   </form> 
+   @if (ViewBag.Response != null) 
+   { 
+      <div class="mt-4"> 
+         <h3>AI Response</h3> 
+         <p>@ViewBag.Response</p> 
+        </div>
+    }
+</div> 
