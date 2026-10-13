@@ -18,10 +18,10 @@ namespace AIServices.Controllers
         public async Task<IActionResult> Generate(string recipient, string subject, string purpose)
         {
             var prompt = $@"Generate a professional email. 
-  Recipient: {recipient} 
-  Subject: {subject} 
-  Purpose: {purpose} 
-  Provide only the email content.";
+                 Recipient: {recipient} 
+                 Subject: {subject} 
+                 Purpose: {purpose} 
+                 Provide only the email content.";
             var emailContent = await _aiService.GetResponseAsync(prompt);
             ViewBag.GeneratedEmail = emailContent;
             return View("Index");
