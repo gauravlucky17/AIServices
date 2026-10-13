@@ -1,0 +1,27 @@
+﻿@{
+
+    ViewData["Title"] = "Email Generator";
+}
+<h2>Email Generator</h2>
+<form asp-action="Generate" method="post">
+    <div class="mb-3">
+        <label>Recipient</label>
+        <input type="text" name="recipient" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Subject</label>
+        <input type="text" name="subject" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Purpose</label>
+        <textarea name="purpose" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Email</button>
+</form>
+@if (ViewBag.GeneratedEmail != null)
+{
+    <div class="mt-4">
+        <h4>Generated Email</h4>
+        <textarea class="form-control" rows="12">@ViewBag.GeneratedEmail</textarea>
+    </div>
+}
