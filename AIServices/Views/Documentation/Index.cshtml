@@ -1,0 +1,21 @@
+﻿@{ 
+   ViewData["Title"] = "Documentation Generator"; 
+} 
+<h2>AI Documentation Generator</h2> 
+<form method="post" asp-action="Generate"> 
+   <div class="mb-3"> 
+      <label>Topic</label> 
+      <input type="text" name="topic" class="form-control" /> 
+   </div> 
+   <button type="submit" class="btn btn-primary">Generate Documentation</button> 
+</form> 
+@if (ViewBag.Error != null) 
+{ 
+   <div class="alert alert-danger">@ViewBag.Error</div> 
+} 
+@if (ViewBag.Documentation != null) 
+{ 
+   <hr /> 
+   <h4>Generated Documentation</h4> 
+   <pre>@ViewBag.Documentation</pre> 
+}
