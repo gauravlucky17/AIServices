@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "SQL Generator";
+}
+<h2>SQL Query Generator</h2>
+<form method="post" asp-action="Generate">
+    <div class="mb-3">
+        <label class="form-label">Enter Requirement</label>
+        <textarea name="requirement" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate SQL</button>
+</form>
+@if (ViewBag.SQLQuery != null)
+{
+    <hr />
+    <h4>Generated SQL</h4>
+    <pre>@ViewBag.SQLQuery</pre>
+}
