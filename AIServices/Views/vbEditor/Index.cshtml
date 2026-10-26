@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Visual Basic Code Generator";
+}
+<h2>Visual Basic Code Generator</h2>
+<form method="post" asp-action="Generate">
+    <div class="mb-3">
+        <label class="form-label">Enter Requirement</label>
+        <textarea name="requirement" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Visual Basic Code</button>
+</form>
+@if (ViewBag.VBCode != null)
+{
+    <hr />
+    
+    <h4>Generated Visual Basic Code</h4>
+    <button type="button" class="btn btn-primary mb-2" onclick="copyCode()">
+        Copy Code
+    </button>
+   @*  <pre>@ViewBag.VBCode</pre> *@
+   <pre id="vbCodeBlock">@ViewBag.VBCode</pre>
+}
+<script>
+    function copyCode() {
+        var code = document.getElementById("vbCodeBlock").innerText;
+
+        navigator.clipboard.writeText(code)
+            .then(function () {
+                alert("Code copied successfully!");
+            })
+            .catch(function (err) {
+                console.error("Failed to copy: ", err);
+            });
+    }
+</script>
